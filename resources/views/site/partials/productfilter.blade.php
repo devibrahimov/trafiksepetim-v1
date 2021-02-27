@@ -12,7 +12,7 @@ $carcompanies = \App\Model\Cars::all();
             <form action="{{route('filterResultpage')}}" method="GET" >
                 <h3 class="section-title">Ürünleri Filtrele</h3>
             <div class="widget-header">
-                <h4 class="widget-title ">Ketgori</h4>
+                <h4 class="widget-title ">Ktegori</h4>
             </div>
             <select data-live-search="true" data-style="btn-inverse" name="filtercategory" id="filtercategory" data-live-search-style="startsWith" class="selectpicker">
                 <option selected disabled value="{{null}}">Kategoriyi Seçin</option>
@@ -68,7 +68,7 @@ $carcompanies = \App\Model\Cars::all();
 {{--                    </div>--}}
 
                 <div class="widget-header">
-                    <h4 class="widget-title pb-2">Yıdız Puanı</h4>
+                    <h4 class="widget-title pb-2">Yıldız Puanı</h4>
                 </div>
 
                 <div>
