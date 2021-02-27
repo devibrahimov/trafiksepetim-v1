@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="7345b560-b6e2-411b-9a21-7dfabc73ac12" name="Trafiksepetimsite" url="https://trafiksepetim.com">
+        <fileTransfer rootFolder="/public_html" host="trafiksepetim.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="9818eee9-8a93-42ba-85f5-1e66d1ac5c76" name="Kaydef" url="http://kaydef.com">
+        <fileTransfer host="kaydef.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="ef91a818-4fbe-4e02-87cf-a5f78dfb5c24" name="tulusanmilking" url="http://tulusanmilking.com">
+        <fileTransfer rootFolder="/public_html" host="tulusanmilking.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="1c0fc544-fed0-4859-b951-6e53a527a7c5" name="gecmehukuk.com" url="http://gecmehukukvedanismanlik.com">
+        <fileTransfer rootFolder="/public_html" host="gecmehukukvedanismanlik.com" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
