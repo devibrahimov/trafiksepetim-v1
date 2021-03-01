@@ -122,6 +122,7 @@
 
                 $('#loader_giph').show();
             var filtercategory= $("#filtercategory option:selected ").val() ;
+            var filtersubcategory= $("#filtersubcategory option:selected ").val() ;
             var filterminprice = $('#filterminprice').val() ;
             var filtermaxprice = $('#filtermaxprice').val() ;
             var state =  $("#filterstate option:selected ").val() ;

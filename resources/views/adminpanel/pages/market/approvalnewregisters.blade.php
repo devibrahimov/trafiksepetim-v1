@@ -9,17 +9,9 @@
     <!-- Title -->
     <div class="row heading-bg">
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-            <h5 class="txt-dark">Data table</h5>
+            <h5 class="txt-dark">Onay bekleyen mağazalar</h5>
         </div>
-        <!-- Breadcrumb -->
-        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-            <ol class="breadcrumb">
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="#"><span>table</span></a></li>
-                <li class="active"><span>data-table</span></li>
-            </ol>
-        </div>
-        <!-- /Breadcrumb -->
+
     </div>
     <!-- /Title -->
 
@@ -61,7 +53,7 @@
                                         <td>{{$store->updated_at}}</td>
                                         <td>
                                             <div class="button-list">
-                                                <button class="btn btn-primary btn-icon-anim btn-square btn-sm"><i class="icon-eye"></i></button>
+                                                <a href="{{route('storeShow',$store->id)}}"  class="btn btn-primary btn-icon-anim btn-square btn-sm"><i class="fa fa-eye"></i></a>
                                                 <button class="btn btn-default btn-icon-anim btn-square btn-sm"><i class="fa fa-pencil"></i></button>
                                                 <button class="btn btn-danger  btn-icon-anim btn-square btn-sm"><i class="fa fa-ban"></i></button>
                                             </div>

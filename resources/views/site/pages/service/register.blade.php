@@ -192,9 +192,9 @@
                                               <i  class="fa fa-question-circle " style="pointer-events: none;"></i>
                                             </span>
                                         </label>
-                                        <input class="customFormInput" requiredvalue="{{old('tax_number')}}"
-                                               name="tax_number" type="text" >
-                                    </div>
+                                        <input class="customFormInput" required value="{{old('tax_number')}}"
+                                               name="tax_number" type="number" >
+                                        </div>
                                     <div class="col-md-6">
                                         <label for="input">TC Kimlik No
                                             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Hizmet adı ne işeyarayacak metni içeriği">

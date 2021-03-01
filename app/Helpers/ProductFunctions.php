@@ -80,10 +80,11 @@ function getproductrate($id){
                                 <a href="'. route('product_detail',\Illuminate\Support\Str::slug($product->name).'-P'.$product->id) .'">
                                <img class="cover" src="'.env('APP_URL').'/storage/uploads/thumbnail/malls/'.$product->market_id .'/productimages/small/'.$image->cover.'" alt="'.$product->name.'" title="'.$product->name.'">  </a>
                                 '.$new.'</div> <div class="product-info text-left"> <h3 class="name"><a href="'.$routeurl.'"> ' .$productname. ' </a> </h3> <div class="  rateit-small">'.$ratehtml.'</div>
-                                <div class="description">'.$meta_desc.'</div> <div class="product-price"> '.$pricehtml.'</div> </div> <div class="cart clearfix animate-effect">
-                                <div class="action"> <ul class="list-unstyled"> <li class="add-cart-button btn-group"> <button data-toggle="tooltip" class="btn btn-primary icon addtocart" type="button" title="Sepete Ekle" data-productId="'.$product->id.'|'.$product->name.'|'.$image->cover.'|'.$productprice.'|'.$quantity.'|'.$product->market_id.'" > <i class="fa fa-shopping-cart"></i> </button>
-                                <button class="btn btn-primary cart-btn" type="button"> Sepete Ekle </button> </li> <li class="lnk addwishlist"  data-id="'. $product->id .'"> <a data-toggle="tooltip" class="add-to-cart "   title="Listeme Ekle"> <i class="icon fa fa-heart"></i> </a>
-                                </li> </ul>  </div> </div> </div>  </div> </div>';
+                              <div class="description">'.$meta_desc.'</div> <div class="product-price"> '.$pricehtml.'</div> </div> <div class="cart clearfix animate-effect"> '.
+//                              '    <div class="action"> <ul class="list-unstyled"> <li class="add-cart-button btn-group"> <button data-toggle="tooltip" class="btn btn-primary icon addtocart" type="button" title="Sepete Ekle" data-productId="'.$product->id.'|'.$product->name.'|'.$image->cover.'|'.$productprice.'|'.$quantity.'|'.$product->market_id.'" > <i class="fa fa-shopping-cart"></i> </button>
+//                              <button class="btn btn-primary cart-btn" type="button"> Sepete Ekle </button> </li> <li class="lnk addwishlist"  data-id="'. $product->id .'"> <a data-toggle="tooltip" class="add-to-cart "   title="Listeme Ekle"> <i class="icon fa fa-heart"></i> </a>
+//                              </li> </ul>  </div>'.
+            '</div> </div>  </div> </div>';
         }//endforeach
 
         return $productsdata;
@@ -149,8 +150,8 @@ function getproductrate($id){
                                                                         <li class="lnk wishlist addwishlist"  data-id="'. $product->id .'"> <a class="add-to-cart"   title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
                                                                     </ul>
                                                                 </div>  </div>  </div>  </div>   </div>
-                                               '.$new.'
-                                            </div>  </div> </div> ';
+                                                               '.$new.'
+                                                            </div>  </div> </div> ';
 
         }
 

@@ -137,16 +137,13 @@
                                              alt="trafiksepetim-{{auth('market')->user()->market_name}}" width="18px"
                                              height="18px">
                                     @endif
-
                                     &nbsp; {{auth('market')->user()->market_name}} </a>
-
                             </li>
                             <li>
                                 <a href="#" onclick="event.preventDefault();
                                     document.getElementById('form-submit').submit()">Çıkış Yap</a>
                             </li>
-                            <form action="{{route('market.logout')}}" method="post" id="form-submit"
-                                  style="display: none;">
+                            <form action="{{route('market.logout')}}" method="post" id="form-submit" style="display: none;">
                                 @csrf
                             </form>
                         </ul>
@@ -163,7 +160,8 @@
                             </li>
                             <li class="dropdown dropdown-small  ">
                                 <a href="#">
-                                    <span class="value "><i class="fa fa-shopping-cart"> </i> Siparişlerim</span></a>
+                                <span class="value "><i class="fa fa-shopping-cart"> </i> Siparişlerim</span>
+                                </a>
                             </li>
                             <li class="dropdown dropdown-small  ">
                                 <a href="#">
@@ -248,7 +246,7 @@
                             <ul class="list-unstyled list-inline">
                                 <li class="dropdown dropdown-small">
                                     <a href="#">
-                                        <span class="value">Trafik Sepetim Sloganı Alanı</span>
+                                        <span class="value">Trafik Sepetim Kayıtlara Açılmıştır</span>
                                     </a>
                                 </li>
                             </ul>
@@ -286,85 +284,86 @@
                         <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown"
                            onclick="document.getElementById('sepetSideBar').style.width = '270px';">
                             <div class="items-cart-inner">
-                                <div class="basket"><i class="glyphicon glyphicon-shopping-cart"></i></div>
-                                <div class="basket-item-count">
-                                    <span class="count" id="basketproductcount">
-                                        @auth {{ (new HelperController)->basketproductcount(auth()->user()->id)  }}   @endauth
-                                        @guest  0 @endguest
-                                    </span>
-                                </div>
-                                <div class="total-price-basket">
-                                    <span class="total-price">
-                                       <span class="value" id="cartotalpriceshow">
-                                            @auth {{ (new HelperController)->baskettotalprice(auth()->user()->id)}}
-                                           <span class="sign">₺</span> @endauth
-                                           @guest 0.00   @endguest
-                                        </span>
-                                    </span>
-                                </div>
+                                <div class="basket"><i class="glyphicon glyphicon-shopping-cart"> </i> Çok Yakında</div>
+
+                                {{--                                <div class="basket-item-count">--}}
+{{--                                    <span class="count" id="basketproductcount">--}}
+{{--                                        @auth {{ (new HelperController)->basketproductcount(auth()->user()->id)}}   @endauth--}}
+{{--                                        @guest  0 @endguest--}}
+{{--                                    </span>--}}
+{{--                                </div>--}}
+{{--                                <div class="total-price-basket">--}}
+{{--                                    <span class="total-price">--}}
+{{--                                       <span class="value" id="cartotalpriceshow">--}}
+{{--                                            @auth {{ (new HelperController)->baskettotalprice(auth()->user()->id)}}--}}
+{{--                                           <span class="sign">₺</span> @endauth--}}
+{{--                                           @guest 0.00   @endguest--}}
+{{--                                        </span>--}}
+{{--                                    </span>--}}
+{{--                                </div>--}}
                             </div>
                         </a>
 
-                        <div id="sepetSideBar" class="sepetSideBar">
-                            <a href="javascript:void(0)" class="sepetSideBarClose"
-                               onclick=" document.getElementById('sepetSideBar').style.width = '0';">×</a>
+{{--                        <div id="sepetSideBar" class="sepetSideBar">--}}
+{{--                            <a href="javascript:void(0)" class="sepetSideBarClose"--}}
+{{--                               onclick=" document.getElementById('sepetSideBar').style.width = '0';">×</a>--}}
 
-                            @auth
-                                <div id="cartproducts">
-                                    @php $basketproducts = (new HelperController)->getbasketproducts()  @endphp
-                                    @php $baskettotalprice = (new HelperController)->baskettotalprice(auth()->user()->id)  @endphp
-                                    @if(isset($basketproducts))
-                                        @foreach($basketproducts as $prdct)
-                                            <div class="product mt-2  " style="border-bottom: #666666">
-                                                <div class="row product-micro-row">
-                                                    <div class="col col-xs-5">
-                                                        <div class="image">
-                                                            <a href="#">
-                                                                <img
-                                                                    src="storage/uploads/thumbnail/malls/{{$prdct->market_id}}/productimages/small/{{$prdct->image}}"
-                                                                    title="{{$prdct->name}}" alt="{{$prdct->name}}">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col2 col-xs-7">
-                                                        <div class="product-info">
-                                                            <div class="product-price"> <span class="productname">
-                                                                @if( strlen($prdct->name) >17 )
-                                                                        {{substr($prdct->name,0,17)}}...
-                                                                    @else
-                                                                        {{substr($prdct->name,0,17)}}
-                                                                    @endif</span></div>
-                                                            {{--                                                        <div class="rating rateit-small"></div>--}}
-                                                            <div class="cartpriceshow"
-                                                                 data-value="{{$prdct->sale_price !=NULL?$prdct->sale_price :$prdct->price}}">
-                                                                {{$prdct->sale_price !=NULL?$prdct->sale_price :$prdct->price}} </span>
-                                                                ₺ x
-                                                                <span
-                                                                    class="cartquantityshow">{{$prdct->quantity}} </span>
-                                                            </div>
-                                                            <i class="fa fa-trash sepetSideBarTrash" id="{{$prdct->id}}"
-                                                               data-productprice="{{$prdct->sale_price !=NULL?$prdct->sale_price :$prdct->price}}"
-                                                               data-productqty="{{$prdct->quantity}}"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            @endauth
-                            <div class="fitBottom">
-                                <div>
-                                    <h5>Toplam</h5>
-                                    @auth  <span id="cartotalprice" data-value="{{$baskettotalprice}}">{{$baskettotalprice}}₺</span> @endauth
-                                    @guest <span>0 ₺</span>@endguest
-                                </div>
-                                <div>
-                                    <a href="{{route('basket')}}" class="btn btn-primary sepetButton">Sepete Git</a>
-                                </div>
-                            </div>
+{{--                            @auth--}}
+{{--                                <div id="cartproducts">--}}
+{{--                                    @php $basketproducts = (new HelperController)->getbasketproducts()  @endphp--}}
+{{--                                    @php $baskettotalprice = (new HelperController)->baskettotalprice(auth()->user()->id)  @endphp--}}
+{{--                                    @if(isset($basketproducts))--}}
+{{--                                        @foreach($basketproducts as $prdct)--}}
+{{--                                            <div class="product mt-2  " style="border-bottom: #666666">--}}
+{{--                                                <div class="row product-micro-row">--}}
+{{--                                                    <div class="col col-xs-5">--}}
+{{--                                                        <div class="image">--}}
+{{--                                                            <a href="#">--}}
+{{--                                                                <img--}}
+{{--                                                                    src="storage/uploads/thumbnail/malls/{{$prdct->market_id}}/productimages/small/{{$prdct->image}}"--}}
+{{--                                                                    title="{{$prdct->name}}" alt="{{$prdct->name}}">--}}
+{{--                                                            </a>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="col2 col-xs-7">--}}
+{{--                                                        <div class="product-info">--}}
+{{--                                                            <div class="product-price"> <span class="productname">--}}
+{{--                                                                @if( strlen($prdct->name) >17 )--}}
+{{--                                                                        {{substr($prdct->name,0,17)}}...--}}
+{{--                                                                    @else--}}
+{{--                                                                        {{substr($prdct->name,0,17)}}--}}
+{{--                                                                    @endif</span></div>--}}
+{{--                                                            --}}{{----}}{{--                                                        <div class="rating rateit-small"></div>--}}
+{{--                                                            <div class="cartpriceshow"--}}
+{{--                                                                 data-value="{{$prdct->sale_price !=NULL?$prdct->sale_price :$prdct->price}}">--}}
+{{--                                                                {{$prdct->sale_price !=NULL?$prdct->sale_price :$prdct->price}} </span>--}}
+{{--                                                                ₺ x--}}
+{{--                                                                <span--}}
+{{--                                                                    class="cartquantityshow">{{$prdct->quantity}} </span>--}}
+{{--                                                            </div>--}}
+{{--                                                            <i class="fa fa-trash sepetSideBarTrash" id="{{$prdct->id}}"--}}
+{{--                                                               data-productprice="{{$prdct->sale_price !=NULL?$prdct->sale_price :$prdct->price}}"--}}
+{{--                                                               data-productqty="{{$prdct->quantity}}"></i>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                        @endforeach--}}
+{{--                                    @endif--}}
+{{--                                </div>--}}
+{{--                            @endauth--}}
+{{--                            <div class="fitBottom">--}}
+{{--                                <div>--}}
+{{--                                    <h5>Toplam</h5>--}}
+{{--                                    @auth  <span id="cartotalprice" data-value="{{$baskettotalprice}}">{{$baskettotalprice}}₺</span> @endauth--}}
+{{--                                    @guest <span>0 ₺</span>@endguest--}}
+{{--                                </div>--}}
+{{--                                <div>--}}
+{{--                                    <a href="{{route('basket')}}" class="btn btn-primary sepetButton">Sepete Git</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                        </div>
+{{--                        </div>--}}
 
                     </div>
                 </div>

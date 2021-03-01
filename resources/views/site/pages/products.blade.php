@@ -98,6 +98,17 @@
             mycontent(mypage,filtersort,listtype);
         })
 
+        {{--$('#filtercategoryselect').change(function () {--}}
+        {{--    var parent_id = $(this).val() ;--}}
+        {{--   // console.log(pid)--}}
+        {{--    $.AJAX({--}}
+        {{--        method : 'POST',--}}
+        {{--        url    :   '{{route("getsubcategorycontent")}}',--}}
+        {{--        data : {--}}
+        {{--            'pid' : parent_id--}}
+        {{--        }--}}
+        {{--    });--}}
+        {{--});--}}
         $(window).scroll(function(){
             if($(window).scrollTop()+$(window).height() == $(document).height()){
                 mypage++;

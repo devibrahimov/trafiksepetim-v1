@@ -22,8 +22,6 @@ use function Composer\Autoload\includeFile;
 
 class MarketProductController extends Controller
 {
-
-
     public function productstore(Request $request){
 
         $id = auth()->guard('market')->user()->id;
@@ -376,5 +374,24 @@ class MarketProductController extends Controller
         }
     }
 
+    public function getsubcategorycontent(Request $request){
+
+       $pid = $request->pid;
+       $filtersubcategory = $request->filtersubcategory;
+       $subcategories = SubCategories::where('parent_id',$pid)->get();
+       $html = '<div class="widget-header">
+                    <h4 class="widget-title ">Kategori</h4>
+                </div>
+              <select data-live-search="true" data-style="btn-inverse" name="filtersubcategory" id="filtersubcategory" data-live-search-style="startsWith" class="selectpicker">
+              <option selected disabled value="'.null.'">Kategoriyi Seçin</option>';
+
+       foreach ($subcategories as $sbcat){
+
+           $html.= '<option  '.isset($filterquery['filtercategory']) ? $filterquery['$filtersubcategory'] == $sbcat->id? "selected": "" :"" .'  value="'.$sbcat->id.'">'. $sbcat->name.'</option>';
+       }
+        $html.= '</select>';
+
+       return $html ;
+    }
 
 }

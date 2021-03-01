@@ -556,6 +556,7 @@ class SiteController extends Controller
         $filterquery = [
             'salepriceproduct'=> isset($request->salepriceproduct) ?$request->salepriceproduct :'',
             'filtercategory'=>isset($request->filtercategory)?$request->filtercategory :'',
+//            'filtersubcategory'=>isset($request->filtersubcategory)?$request->filtersubcategory :'',
             'filterminprice'=>isset($request->filterminprice)?$request->filterminprice :'',
             'filtermaxprice'=>isset($request->filtermaxprice)?$request->filtermaxprice :'',
             'filterstock'=>isset($request->filterstock)?$request->filterstock :'',

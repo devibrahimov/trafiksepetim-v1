@@ -177,7 +177,7 @@
     </div>
 
 </footer>
-<script src="{{env('APP_URL')}}/site/js/jquery-1.11.1.min.js"></script>
+{{--<script src="{{env('APP_URL')}}/site/js/jquery-1.11.1.min.js"></script>--}}
 <script src="{{env('APP_URL')}}/assets/toastr-notification/toastr.min.js"  type="text/javascript" ></script>
 <script src="{{env('APP_URL')}}/site/js/bootstrap.min.js"></script>
 <script src="{{env('APP_URL')}}/assets/js/bootstrap-multiselect.js"></script>
@@ -271,6 +271,22 @@
     @endauth
         });
 
+   {{--$('#filtercategoryselect').change(function (){--}}
+   {{--         var parentid = $(this).val();--}}
+
+   {{--         $.ajax({--}}
+   {{--             method: 'post',--}}
+   {{--             url:'{{route("getsubcategorycontent")}}',--}}
+   {{--             data:{--}}
+   {{--                 'pid' :parentid,--}}
+   {{--                 '_token':'{{csrf_token()}}'--}}
+   {{--             },--}}
+   {{--             success : function (data) {--}}
+   {{--                 $('#filtersubcategorydiv').html(data)--}}
+   {{--             }--}}
+   {{--         });--}}
+   {{--     });--}}
+
     $(document).on('click' ,'.sepetSideBarTrash', function(){
             // debugger;
             id = $(this).attr('id');
@@ -285,7 +301,6 @@
                         _token:'{{csrf_token()}}'
                     },
                     success:function (data) {
-
                         $('#'+id).parent().parent().parent().parent().remove();
                         $.each($('#cartproducts').children(),function(){
                             // console.log(productprice)
@@ -309,7 +324,8 @@
                         $('.cartrowTrash[data-id*="'+id+'"]').trigger('click');
                      }//end success
                 })
-        })
+    });
+
 
     $(document).on('click','.addwishlist' ,function () {
         @guest
@@ -336,34 +352,43 @@
         })
         @endauth
     });
-    });
-    @if( session()->has('message') )
 
-     var type = "{{session()->get('alert-type','info')}}";
 
-     switch (type) {
-        case "success":
-            toastr.success("{{session()->get('message')}}");
-            break;
-        case "info":
-            toastr.info("{{session()->get('message')}}");
-            break;
-        case "warning":
-            toastr.warning("{{session()->get('message')}}");
-            break;
-        case "error":
-            toastr.error("{{session()->get('message')}}");
-            break;
-    }
 
-    @endif
 
-    @if ($errors->any())
-    @foreach ($errors->all() as $error)
-    console.log( '{{$error}}' );
+
+
+        @if( session()->has('message') )
+
+        var type = "{{session()->get('alert-type','info')}}";
+
+        switch (type) {
+            case "success":
+                toastr.success("{{session()->get('message')}}");
+                break;
+            case "info":
+                toastr.info("{{session()->get('message')}}");
+                break;
+            case "warning":
+                toastr.warning("{{session()->get('message')}}");
+                break;
+            case "error":
+                toastr.error("{{session()->get('message')}}");
+                break;
+        }
+
+        @endif
+
+        @if ($errors->any())
+        @foreach ($errors->all() as $error)
+        console.log( '{{$error}}' );
         toastr.error("HATA MESAJI ! {{$error}}");
-    @endforeach
-    @endif
+        @endforeach
+        @endif
+
+
+    });
+
 
 </script>
 

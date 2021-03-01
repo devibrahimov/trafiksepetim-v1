@@ -69,6 +69,8 @@ Route::group(['middleware' => 'throttle:30,1'], function () {
 
     /***************** ( END ) KAYIT OL SAYFALARI****************/
 
+    Route::post('/getsubcategorycontent', 'Site\Market\MarketProductController@getsubcategorycontent')->name('getsubcategorycontent');
+
     Route::group(['middleware' => 'market'],function(){
         Route::post('/marketcikis','Site\LoginController@marketlogout')->name('market.logout');
         Route::get('/magazam', 'Site\Market\MarketPagesController@myshop')->name('myshop');
@@ -99,7 +101,6 @@ Route::group(['middleware' => 'throttle:30,1'], function () {
 
         Route::post('/getsubcategory', 'Site\Market\MarketProductController@getsubcategory')->name('getsubcategory');
         Route::post('/getsecondsubcategory', 'Site\Market\MarketProductController@getsecondsubcategory')->name('getsecondsubcategory');
-
     });
 
     Route::group(['middleware'=>'service'],function(){
@@ -171,6 +172,7 @@ Route::group(['middleware' => 'throttle:30,1'], function () {
 
     Route::group(['prefix'=>'adminpanel'],function (){
 
+        Route::get('/', function (){return redirect()->route('administratorlogin');} ) ;
         Route::get('/admin-giris','Admin\AdminController@login')->name('administratorlogin');
         Route::post('/admin-giris','Admin\AdminController@administratorlogin');
         Route::group(['middleware'=>'administrator'],function (){
@@ -182,6 +184,20 @@ Route::group(['middleware' => 'throttle:30,1'], function () {
             Route::get('/yeni-magaza-ac','Admin\Market\ManageController@createnewregister')->name('createnewregister');
             Route::get('/onaylanmis-magazalar','Admin\Market\ManageController@approvednewregisters')->name('approvednewregisters');
             Route::get('/bloke-edilmish-magazalar','Admin\Market\ManageController@blockedstores')->name('blockedstores');
+
+            Route::get('/urun-kategorisi-ekle','Admin\Product\ManageController@createnewProductcategory')->name('createnewProductcategory');
+            Route::post('/urun-kategorisi-ekle','Admin\Product\ManageController@newproductcategorystore') ;
+            Route::get('/urun-kategorisi-duzenle/{id}','Admin\Product\ManageController@editnewProductcategory')->name('updateProductcategory');
+            Route::put('/urun-kategorisi-duzenle/{id}','Admin\Product\ManageController@productcategoryupdate') ;
+            Route::get('/urun-kategorileri','Admin\Product\ManageController@categories')->name('productCategories');
+
+            Route::get('/urun-altkategorileri/{id}','Admin\Product\ManageController@subcategories')->name('productsubcategories');
+            Route::get('/urun-altkategorisi-ekle/{id}','Admin\Product\ManageController@createnewProductsubcategory')->name('createnewProductsubcategory');
+            Route::post('/urun-altkategorisi-ekle/{id}','Admin\Product\ManageController@newproductsubcategorystore') ;
+            Route::get('/urun-altkategorisi-duzenle/{id}','Admin\Product\ManageController@editnewProductsubcategory')->name('updateProductsubcategory');
+            Route::put('/urun-altkategorisi-duzenle/{id}','Admin\Product\ManageController@productsubcategoryupdate') ;
+
+            Route::get('/magaza-bilgileri/{id}','Admin\Market\ManageController@storeShow')->name('storeShow');
         });
     });
 

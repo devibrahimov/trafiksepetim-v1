@@ -1,6 +1,7 @@
 @php
 
 $categories   =  \App\Model\Category::all();
+$subcategories   =  \App\Model\SubCategories::all();
 $carcompanies = \App\Model\Cars::all();
  //$carmodels    = \App\Model\CarModel::all();
 
@@ -14,12 +15,17 @@ $carcompanies = \App\Model\Cars::all();
             <div class="widget-header">
                 <h4 class="widget-title ">Kategori</h4>
             </div>
-            <select data-live-search="true" data-style="btn-inverse" name="filtercategory" id="filtercategory" data-live-search-style="startsWith" class="selectpicker">
+            <select data-live-search="true" data-style="btn-inverse" name="filtercategory" id="filtercategoryselect" data-live-search-style="startsWith" class="selectpicker">
                 <option selected disabled value="{{null}}">Kategoriyi Seçin</option>
                   @foreach($categories as $cat)
                     <option @if(isset($filterquery['filtercategory'])){{$filterquery['filtercategory'] == $cat->id? 'selected': ''}}@endif value="{{$cat->id}}">{{$cat->name}}</option>
                   @endforeach
             </select>
+
+{{--                <div id="filtersubcategorydiv">--}}
+
+{{--                </div>--}}
+
             <div class="widget-header">
                 <h4 class="widget-title">Fiyat Aralığı</h4>
             </div>
@@ -34,7 +40,7 @@ $carcompanies = \App\Model\Cars::all();
                     </div>
                </span>
                    <span class="col-md-6">
-                         <span >En Yüksek</span>
+                         <span>En Yüksek</span>
                      <div class="input-group input-group-sm">
                     <span class="input-group-addon" id="sizing-addon3">₺</span>
                     <input type="number" class="form-control" placeholder="0" @if(isset($filterquery['filtermaxprice']))value="{{$filterquery['filtermaxprice']}}"@endif name="filtermaxprice" id="filtermaxprice"  aria-describedby="sizing-addon3">
@@ -59,18 +65,16 @@ $carcompanies = \App\Model\Cars::all();
                         <option @if(isset($filterquery['filtercarcompany'])){{ $filterquery['filtercarcompany'] == $car->id?"selected":"" }}@endif value="{{$car->id}}">{{$car->name}}</option>
                         @endforeach
                     </select>
-                    <div class="widget-header">
-                        <h4 class="widget-title pb-2">Minumum Stok Sayısı</h4>
-                    </div>
-                    <div class="input-group input-group-sm">
-                        <span class="input-group-addon" id="sizing-addon3">En az </span>
-                        <input type="number" @if(isset($filterquery['filterstock']))value="{{$filterquery['filterstock']}}"@endif class="form-control"  name="filterstock" id="filterstock" aria-describedby="sizing-addon3">
-                    </div>
-
+{{--                    <div class="widget-header">--}}
+{{--                        <h4 class="widget-title pb-2">Minumum Stok Sayısı</h4>--}}
+{{--                    </div>--}}
+{{--                    <div class="input-group input-group-sm">--}}
+{{--                        <span class="input-group-addon" id="sizing-addon3">En az </span>--}}
+{{--                        <input type="number" @if(isset($filterquery['filterstock']))value="{{$filterquery['filterstock']}}"@endif class="form-control"  name="filterstock" id="filterstock" aria-describedby="sizing-addon3">--}}
+{{--                    </div>--}}
                 <div class="widget-header">
                     <h4 class="widget-title pb-2">Yıldız Puanı</h4>
                 </div>
-
                 <div>
                    <label for="fiverate">
                    <input type="radio" name="rate" id="fiverate" class="rate" value="5">

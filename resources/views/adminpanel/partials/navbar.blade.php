@@ -14,14 +14,14 @@
         </li>
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#ecom_dr">
-                <div class="pull-left"><i class="ti-shopping-cart  mr-20"></i>
-                    <span class="right-nav-text">Ürün Yönetimi</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
+                <div class="pull-left"><i class="ti-check-box mr-20"></i>
+                    <span class="right-nav-text">Kategori Yönetimi</span></div><div class="pull-right"><i class="ti-angle-down"></i></div><div class="clearfix"></div></a>
             <ul id="ecom_dr" class="collapse collapse-level-1">
                 <li>
-                    <a href="#">Ürün Kategorisi yönetimi</a>
+               <a href="{{route('productCategories')}}">Ürün Kategori Listesi</a>
                 </li>
                 <li>
-                    <a href="#">Ürünler</a>
+                     <a href="{{route('createnewProductcategory')}}">Yeni Ürün Kategorisi Ekle</a>
                 </li>
 
             </ul>
@@ -29,7 +29,7 @@
 
         <li>
             <a href="javascript:void(0);" data-toggle="collapse" data-target="#comp_dr">
-                <div class="pull-left"><i class="ti-check-box  mr-20"></i>
+                <div class="pull-left"><i class=" ti-shopping-cart  mr-20"></i>
                     <span class="right-nav-text">Ürün Yönetimi</span></div><div class="pull-right"><i class="ti-angle-down "></i></div><div class="clearfix"></div></a>
             <ul id="comp_dr" class="collapse collapse-level-1">
                 <li>
@@ -40,10 +40,10 @@
                     </a>
                     <ul id="form_dr" class="collapse collapse-level-2  dr-change-pos">
                         <li>
-                            <a href="#">Ürün Kategori Listesi</a>
+                            <a href="{{route('productCategories')}}">Ürün Kategori Listesi</a>
                         </li>
                         <li>
-                            <a href="#">Yeni Ürün Kategorisi Ekle</a>
+                            <a href="{{route('createnewProductcategory')}}">Yeni Ürün Kategorisi Ekle</a>
                         </li>
                     </ul>
                 </li>
@@ -53,7 +53,7 @@
                         <div class="pull-right"><i class="ti-angle-down "></i></div>
                         <div class="clearfix"></div>
                     </a>
-                    <ul id="chart_dr" class="collap se collapse-level-2 dr-change-pos">
+                    <ul id="chart_dr" class="collapse collapse-level-2 dr-change-pos">
                         <li>
                             <a href="#">5 Yıldız Alan Ürünler</a>
                         </li>
@@ -92,6 +92,37 @@
                 </li>
                 <li>
                     <a class="active-page" href="{{route('blockedstores')}}">Engellenmiş Mağazalar</a>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr">
+                <div class="pull-left">
+                    <i class="ti-stats-up mr-20"></i>
+                    <span class="right-nav-text">Reklam Yönetimi</span>
+                </div>
+                <div class="pull-right"><i class="ti-angle-down"></i></div>
+                <div class="clearfix"></div>
+            </a>
+            <ul id="dashboard_dr" class="collapse collapse-level-1">
+                <li>
+                    <a class="active-page" href="{{route('approvalnewregisters')}}">Onay Bekleyen Mağazalar</a>
+                </li>
+                <li>
+                    <a class="active-page" href="{{route('newregisters')}}">Yeni Reklam Paylaş</a>
+                </li>
+                <li>
+                    <a class="active-page" href="{{route('createnewregister')}}">Zamanı Azalan Reklamlar</a>
+                </li>
+                <li>
+                    <a class="active-page" href="{{route('approvednewregisters')}}">Sırada Bekleyen Reklamlar</a>
+                </li>
+                <li>
+                    <a class="active-page" href="{{route('blockedstores')}}">Doping Reklamları</a>
+                </li>
+                <li>
+                    <a class="active-page" href="{{route('blockedstores')}}">Doping Reklam Gelirleri</a>
                 </li>
             </ul>
         </li>

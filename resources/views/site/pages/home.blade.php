@@ -29,7 +29,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
                     <div id="hero">
                         <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
-                            <div class="item" style="background-image: url('site/img/banner/870x410.jpg');">
+                            <div class="item" style="background-image: url('{{env('APP_URL')}}/site/img/slider1.png');">
                                 <div class="container-fluid">
                                     <div class="caption bg-color vertical-center text-left">
 
@@ -218,7 +218,7 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <div class="wide-banner cnt-strip">
-                                    <div class="image"> <img class="img-responsive" src="site/img/banner/848x180.jpg" alt="">
+                                    <div class="image"> <img class="img-responsive" src="/site/img/banner.png" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="wide-banner cnt-strip">
-                                    <div class="image"> <img class="img-responsive" src="site/img/banner/848x201.jpg" alt="">
+                                    <div class="image"> <img class="img-responsive" src="/site/img/banner.png" alt="">
                                     </div>
 {{--                                    <div class="strip strip-text">--}}
 {{--                                        <div class="strip-inner">--}}

@@ -34,7 +34,6 @@ class AdminController extends Controller
             request()->session()->regenerate();
             return redirect()->intended('/adminpanel/anasayfa') ;
         }else{
-
             $errors = ['email'=>'Hatalı Giriş'];
             return back()->withErrors($errors);
         }
